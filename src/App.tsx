@@ -1,26 +1,52 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+const initialFlights: IFlight[] =
+    [
+        {
+            flightnumber: 'SK1326',
+            origin: 'OSL',
+            dest: 'AES',
+            date: new Date('2022-02-10'),
+            registration: 'LN-RRN'
+        }
+    ]
+
+const App = () => {
+
+    const [flights, setFlights] = useState(initialFlights)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <>
+        <h1>Flightreg</h1>
+          <div>
+              {
+                  flights.map(flight =>  {
+                      return (
+                          <div>
+                              <p>Flightnummer {flight.flightnumber}</p>
+                              <p>Avreise {flight.origin}</p>
+                              <p>Ankomst {flight.dest}</p>
+                              <p>Registration {flight.registration}</p>
+                          </div>
+                      )
+
+                  })
+
+              }
+          </div>
+
+
+      </>  )
+}
+
+interface IFlight {
+    flightnumber: string
+    origin: string
+    dest: string
+    date: Date
+    registration: string
 }
 
 export default App;
