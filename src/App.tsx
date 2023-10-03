@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -16,7 +15,7 @@ const initialFlights: IFlight[] =
 
 const App = () => {
 
-    const [flights, setFlights] = useState(initialFlights)
+    const [flights] = useState(initialFlights)
   return (
       <>
         <h1>Flightreg</h1>
