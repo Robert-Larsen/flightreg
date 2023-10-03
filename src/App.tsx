@@ -5,11 +5,11 @@ import './App.css';
 const initialFlights: IFlight[] =
     [
         {
-            flightnumber: 'SK1326',
-            origin: 'OSL',
-            dest: 'AES',
+            flightnumber: 'SK1327',
+            origin: 'AES',
+            dest: 'OSL',
             date: new Date('2022-02-10'),
-            registration: 'LN-RRN'
+            registration: 'LN-RRG'
         }
     ]
 
