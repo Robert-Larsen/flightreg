@@ -10,16 +10,14 @@ function App() {
             <Title>Flightreg</Title>
             <Tabs defaultValue="flights">
                 <Tabs.List>
-                    <Tabs defaultValue={"flights"}>
-                        <Tabs.List>
-                            <Tabs.Tab value="flights">
-                                Flights
-                            </Tabs.Tab>
-                            <Tabs.Tab value="registration">
-                                Registration
-                            </Tabs.Tab>
-                        </Tabs.List>
-                    </Tabs>
+                    <Tabs.List>
+                        <Tabs.Tab value="flights">
+                            Flights
+                        </Tabs.Tab>
+                        <Tabs.Tab value="registration">
+                            Registration
+                        </Tabs.Tab>
+                    </Tabs.List>
                 </Tabs.List>
                 <Tabs.Panel value="flights">
                     Flights
