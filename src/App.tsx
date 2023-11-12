@@ -2,6 +2,7 @@ import './App.css'
 import '@mantine/core/styles.css';
 import {MantineProvider, Title} from '@mantine/core';
 import { Tabs } from '@mantine/core';
+import FlightList from "./FlightList";
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
                     </Tabs.List>
                 </Tabs.List>
                 <Tabs.Panel value="flights">
-                    Flights
+                    <FlightList/>
                 </Tabs.Panel>
                 <Tabs.Panel value="registration">
                     Registration
