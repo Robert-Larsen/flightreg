@@ -1,12 +1,12 @@
-import {Button, Container, TextInput} from "@mantine/core";
+import {Autocomplete, Button, Container, TextInput} from "@mantine/core";
 import {DateTimePicker} from "@mantine/dates";
 import {useEffect, useState} from "react";
 import {Flight} from "../model/Flight.ts";
 import {fetchFlights} from "../api/flightFetch.ts";
-
+import * as data from './airports.json';
 
 function FlightRegistration() {
-
+  const icaos = [...new Set(data.default.map(a => a.ICAO))];
   const [flights, setFlights] = useState<Flight[]>([]);
   const [uniqueFlights, setUniqueFlights] = useState<string[]>([]);
   const [warning, setWarning] = useState(false);
@@ -39,8 +39,8 @@ function FlightRegistration() {
                  }}
       />
       {warning && <div>Du har flydd dette flyet før!</div>}
-      <TextInput label="Fra" placeholder="Fra"/>
-      <TextInput label="Til" placeholder="Til"/>
+      <Autocomplete data={icaos} limit={10} label="Fra" placeholder="Fra"/>
+      <Autocomplete data={icaos} limit={10} label="Til" placeholder="Til"/>
       <TextInput label="Type" placeholder="Type"/>
       <DateTimePicker label="Avgang" placeholder="Avgang"></DateTimePicker>
       <DateTimePicker label="Ankomst" placeholder="Ankomst"></DateTimePicker>
