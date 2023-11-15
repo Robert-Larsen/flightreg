@@ -5,7 +5,7 @@ import {Flight} from "../model/Flight.ts";
 import {fetchFlights} from "../api/flightFetch.ts";
 
 
-function FlightRegistration () {
+function FlightRegistration() {
 
   const [flights, setFlights] = useState<Flight[]>([]);
   const [uniqueFlights, setUniqueFlights] = useState<string[]>([]);
@@ -22,23 +22,31 @@ function FlightRegistration () {
   }, [flights]);
 
 
-    return (
-        <Container>
-            <TextInput label="Selskap" placeholder="Selskap"/>
-            <TextInput label="Flight" placeholder="Flight"/>
-            <TextInput label="Reg" placeholder="Reg"
-                       onChange={(e) => setWarning(uniqueFlights.includes(e.target.value)) }
-                       onBlur={(e) => setWarning(uniqueFlights.includes(e.target.value)) }
-            />
-            {warning && <div>Du har flydd dette flyet før!</div>}
-            <TextInput label="Fra" placeholder="Fra"/>
-            <TextInput label="Til" placeholder="Til"/>
-            <TextInput label="Type" placeholder="Type"/>
-            <DateTimePicker label="Avgang" placeholder="Avgang"></DateTimePicker>
-            <DateTimePicker label="Ankomst" placeholder="Ankomst"></DateTimePicker>
-            <Button>Registrer</Button>
-        </Container>
-    );
+  return (
+    <Container>
+      <TextInput label="Selskap" placeholder="Selskap"/>
+      <TextInput label="Flight" placeholder="Flight"/>
+      <TextInput label="Reg" placeholder="Reg"
+                 onChange={(e) => {
+                   if (e.target.value) {
+                     setWarning(uniqueFlights.includes(e.target.value))
+                   }
+                 }}
+                 onBlur={(e) => {
+                   if (e.target.value) {
+                     setWarning(uniqueFlights.includes(e.target.value))
+                   }
+                 }}
+      />
+      {warning && <div>Du har flydd dette flyet før!</div>}
+      <TextInput label="Fra" placeholder="Fra"/>
+      <TextInput label="Til" placeholder="Til"/>
+      <TextInput label="Type" placeholder="Type"/>
+      <DateTimePicker label="Avgang" placeholder="Avgang"></DateTimePicker>
+      <DateTimePicker label="Ankomst" placeholder="Ankomst"></DateTimePicker>
+      <Button>Registrer</Button>
+    </Container>
+  );
 }
 
 export default FlightRegistration;
