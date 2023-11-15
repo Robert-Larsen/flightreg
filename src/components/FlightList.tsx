@@ -1,33 +1,14 @@
 import {useEffect, useState} from "react";
-import {getFlights} from "../firebase";
-import { QuerySnapshot } from 'firebase/firestore';
 import { Accordion } from '@mantine/core';
 import {Flight} from "../model/Flight";
-import {FlightData} from "../model/FlightData";
+import {fetchFlights} from "../api/flightFetch.ts";
 
 
 function FlightList () {
     const [flights, setFlights] = useState<Flight[]>([]);
 
     useEffect(() => {
-        async function fetchFlights() {
-            try {
-                const querySnapshot: QuerySnapshot = await getFlights();
-
-                const flights: Flight[] = [];
-                querySnapshot.forEach((doc) => {
-                    const data: FlightData = doc.data() as FlightData;
-                    flights.push({
-                        id: doc.id,
-                        data
-                    });
-                });
-                setFlights(flights);
-            } catch(error) {
-                console.error('Error fetching flights:', error);
-            }
-        }
-        fetchFlights();
+        fetchFlights(setFlights);
     }, []);
 
     const flightAccordion = flights.map((flight) => (
@@ -52,5 +33,6 @@ function FlightList () {
         </Accordion>
     );
 }
+
 
 export default FlightList;
