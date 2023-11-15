@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# Flightreg
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Very simple app to read (and soon add...) data about flights into a Firestore database.
 
-Currently, two official plugins are available:
+### Get started
+1. `npm install`
+2. `npm run build`
+3. `npm run dev`
+4. Visit http://localhost:5173`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Local development
+There is currently no other option than running against the actual Firestore database. 
+Create a file `.env` and add these variables to it:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+| Variable     | Value |
+|--------------| ----- |
+| VITE_API_KEY | <api-key> |
+| VITE_AUTH_DOMAIN | flightreg-v2.firebaseapp.com |
+| VITE_PROJECT_ID | flightreg-v2 |
+| VITE_STORAGE_BUCKET | flightreg-v2.appspot.com |
+| VITE_MESSAGING_SENDER_ID | <message-sender-id> |
+| VITE_APP_ID | <app-id> |

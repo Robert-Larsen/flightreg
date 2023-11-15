@@ -1,32 +1,33 @@
 import './App.css'
 import '@mantine/core/styles.css';
-import {MantineProvider, Title} from '@mantine/core';
-import { Tabs } from '@mantine/core';
-import FlightList from "./FlightList";
+import {MantineProvider, Title, ScrollArea, Tabs} from '@mantine/core';
+import FlightList from "./components/FlightList";
+import FlightRegistration from "./components/FlightRegistration";
 
 function App() {
 
     return (
         <MantineProvider>
             <Title>Flightreg</Title>
-            <Tabs defaultValue="flights">
+            <Tabs defaultValue="flightlist">
                 <Tabs.List>
-                    <Tabs.List>
-                        <Tabs.Tab value="flights">
-                            Flights
-                        </Tabs.Tab>
-                        <Tabs.Tab value="registration">
-                            Registration
-                        </Tabs.Tab>
-                    </Tabs.List>
+                    <Tabs.Tab value="flightlist">
+                        Flights
+                    </Tabs.Tab>
+                    <Tabs.Tab value="registration">
+                        Registrering
+                    </Tabs.Tab>
                 </Tabs.List>
-                <Tabs.Panel value="flights">
-                    <FlightList/>
+                <Tabs.Panel value="flightlist">
+                    <ScrollArea h={600}>
+                        <FlightList/>
+                    </ScrollArea>
                 </Tabs.Panel>
                 <Tabs.Panel value="registration">
-                    Registration
+                    <FlightRegistration/>
                 </Tabs.Panel>
             </Tabs>
+
         </MantineProvider>
     )
 }

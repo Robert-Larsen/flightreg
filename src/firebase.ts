@@ -2,7 +2,9 @@ import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
-    getDocs
+    getDocs,
+    query,
+    orderBy
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -19,6 +21,7 @@ const db = getFirestore(app);
 
 
 export async function getFlights() {
-    const querySnapshot = await getDocs(collection(db, "flights"));
-    return querySnapshot;
+    const fligthsRef = collection(db, "flights");
+    const q = query(fligthsRef, orderBy("departure", "desc"))
+    return await getDocs(q);
 }
