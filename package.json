@@ -7,6 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint flightreg-v2 --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "emulators": "firebase emulators:start --import=./emulators-export",
+    "emulators:export": "firebase emulators:export ./emulators-export",
     "preview": "vite preview"
   },
   "dependencies": {

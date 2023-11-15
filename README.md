@@ -10,17 +10,22 @@ Very simple app to read (and soon add...) data about flights into a Firestore da
 
 ### Local development
 
-There is currently no other option than running against the actual Firestore database. 
-Create a file `.env` and add these variables to it:
+Run the emulators locally with:
 
-| Variable     | Value |
-|--------------| ----- |
-| VITE_API_KEY | <api-key> |
-| VITE_AUTH_DOMAIN | flightreg-v2.firebaseapp.com |
-| VITE_PROJECT_ID | flightreg-v2 |
-| VITE_STORAGE_BUCKET | flightreg-v2.appspot.com |
-| VITE_MESSAGING_SENDER_ID | <message-sender-id> |
-| VITE_APP_ID | <app-id> |
+```
+npm run emulators
+```
+
+Open another terminal tab or window and run:
+
+```
+npm run dev
+```
+
+Data produced in the emulators will be cleared when shutting the emulators down. You can store the current state by running
+```
+npm run emulators:export
+```
 
 ### Deployment
 
