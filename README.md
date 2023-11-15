@@ -9,6 +9,7 @@ Very simple app to read (and soon add...) data about flights into a Firestore da
 4. Visit http://localhost:5173
 
 ### Local development
+
 There is currently no other option than running against the actual Firestore database. 
 Create a file `.env` and add these variables to it:
 
@@ -20,3 +21,7 @@ Create a file `.env` and add these variables to it:
 | VITE_STORAGE_BUCKET | flightreg-v2.appspot.com |
 | VITE_MESSAGING_SENDER_ID | <message-sender-id> |
 | VITE_APP_ID | <app-id> |
+
+### Deployment
+
+The app is automatically deployed on push to `main` using GitHub Actions.
