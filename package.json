@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@mantine/core": "^7.2.1",
-    "@mantine/hooks": "^7.2.1",
     "@mantine/dates": "^7.2.1",
+    "@mantine/hooks": "^7.2.1",
     "dotenv": "^16.3.1",
     "firebase": "^10.6.0",
+    "firebaseui": "^6.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-firebaseui": "^6.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -32,5 +34,11 @@
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "overrides": {
+    "react-firebaseui": {
+      "firebase": "^10.6.0",
+      "react": "^18.2.0"
+    }
   }
 }
