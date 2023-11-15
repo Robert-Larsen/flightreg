@@ -6,7 +6,8 @@ import {fetchFlights} from "../api/flightFetch.ts";
 import * as data from './airports.json';
 
 function FlightRegistration() {
-  const icaos = [...new Set(data.default.map(a => a.ICAO))];
+  // @ts-ignore
+  const icaos = [...new Set(data.default.map(a => a.ICAO))] as unknown as any[];
   const [flights, setFlights] = useState<Flight[]>([]);
   const [uniqueFlights, setUniqueFlights] = useState<string[]>([]);
   const [warning, setWarning] = useState(false);
