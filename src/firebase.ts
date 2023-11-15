@@ -4,7 +4,8 @@ import {
     collection,
     getDocs,
     query,
-    orderBy
+    orderBy,
+    connectFirestoreEmulator
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -19,6 +20,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+if (process.env.NODE_ENV === "development") {
+  connectFirestoreEmulator(db, '127.0.0.1', 8080);
+}
 
 export async function getFlights() {
     const fligthsRef = collection(db, "flights");
