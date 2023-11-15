@@ -5,6 +5,7 @@ import {
   getDocs,
   query,
   orderBy,
+  connectFirestoreEmulator,
 } from "firebase/firestore";
 
 export const firebaseConfig = {
@@ -19,6 +20,10 @@ export const firebaseConfig = {
 export const app = firebase.initializeApp(firebaseConfig);
 export const configuredFirebase = firebase;
 const db = getFirestore(app);
+
+if (process.env.NODE_ENV === "development") {
+  connectFirestoreEmulator(db, "127.0.0.1", 8080);
+}
 
 export async function getFlights() {
   const fligthsRef = collection(db, "flights");
