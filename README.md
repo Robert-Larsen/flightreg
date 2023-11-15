@@ -6,7 +6,7 @@ Very simple app to read (and soon add...) data about flights into a Firestore da
 1. `npm install`
 2. `npm run build`
 3. `npm run dev`
-4. Visit http://localhost:5173`
+4. Visit http://localhost:5173
 
 ### Local development
 There is currently no other option than running against the actual Firestore database. 
